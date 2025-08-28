@@ -7,6 +7,28 @@ import { Shirt, ShoppingBag, X, ArrowLeft } from "lucide-react";
 
 export default function Kaos() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const designs = [
+    {
+      src: "/images/desain1.jpeg",
+      title: "Street Heritage",
+      desc: "Terinspirasi dari gaya jalanan klasik dengan sentuhan modern. Cocok untuk kamu yang ingin tampil casual tapi tetap stylish."
+    },
+    {
+      src: "/images/desain2.jpeg",
+      title: "Monarch White",
+      desc: "Kaos putih elegan dengan detail premium, memberi kesan clean dan mewah. Pas untuk segala suasana."
+    },
+    {
+      src: "/images/desain3.jpeg",
+      title: "Midnight",
+      desc: "Dominasi warna gelap yang misterius dan bold, bikin tampilan lebih berkarakter dan berani."
+    },
+    {
+      src: "/images/desain4.jpeg",
+      title: "Blue Dice",
+      desc: "Nuansa biru dengan pola unik yang playful. Cocok buat gaya santai tapi tetap standout."
+    },
+  ];
 
   return (
     <motion.div
@@ -16,33 +38,37 @@ export default function Kaos() {
       className="min-h-screen font-sans bg-gray-50 flex flex-col"
     >
       {/* HERO */}
-      <header className="relative w-full h-[60vh] flex items-center justify-center text-center bg-black text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/kaos.jpg"
-            alt="Kaos Background"
-            fill
-            className="object-cover opacity-40"
-          />
-        </div>
-         <div className="absolute top-6 left-6 z-20">
+      <header className="relative w-full h-[50vh] md:h-screen flex items-center justify-center text-center text-white overflow-hidden">
+        <Image
+          src="/images/banner.jpeg"
+          alt="Kaos Background"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+
+        <div className="absolute inset-0 bg-black/40" />
+
+        <div className="absolute top-4 left-4 z-20">
           <Link
             href="/"
-            className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full font-medium shadow hover:bg-gray-200 transition"
+            className="flex items-center gap-2 px-3 py-2 bg-white text-black rounded-full text-sm sm:text-base font-medium shadow hover:bg-gray-200 transition"
           >
-            <ArrowLeft className="w-5 h-5" /> Kembali
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" /> Kembali
           </Link>
         </div>
 
-        <div className="relative z-10 px-6 max-w-2xl">
-          <h1 className="text-5xl sm:text-6xl font-extrabold flex items-center justify-center gap-3">
-            <Shirt className="w-10 h-10" /> Kaos Custom
+        <div className="relative z-10 px-4 sm:px-6 max-w-xl">
+          <h1 className="text-3xl sm:text-5xl font-extrabold flex items-center justify-center gap-2 sm:gap-3">
+            <Shirt className="w-8 h-8 sm:w-10 sm:h-10" /> Kaos Custom
           </h1>
-          <p className="mt-4 text-xl text-gray-200">
+          <p className="mt-3 sm:mt-4 text-base sm:text-xl text-gray-200">
             Nyaman dipakai, desain eksklusif, bahan premium.
           </p>
         </div>
       </header>
+
+
 
       {/* SECTION */}
       <section className="py-20 px-6 max-w-6xl mx-auto text-center">
@@ -62,44 +88,38 @@ export default function Kaos() {
         </motion.div>
 
         {/* GRID CARD */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            "/images/desain1.jpeg",
-            "/images/desain2.jpeg",
-            "/images/desain3.jpeg",
-            "/images/desain4.jpeg",
-          ].map((src, i) => (
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {designs.map((item, i) => (
+          <motion.div
+            key={i}
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.4 + i * 0.2, duration: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            className="bg-white rounded-2xl shadow hover:shadow-xl transition cursor-pointer p-4 flex flex-col items-center group"
+            onClick={() => setSelectedImage(item.src)}
+          >
             <motion.div
-              key={i}
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.4 + i * 0.2, duration: 0.6 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="bg-white rounded-2xl shadow hover:shadow-xl transition cursor-pointer p-4 flex flex-col items-center group"
-              onClick={() => setSelectedImage(src)}
+              className="overflow-hidden rounded-xl"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.4 }}
             >
-              <motion.div
-                className="overflow-hidden rounded-xl"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.4 }}
-              >
-                <Image
-                  src={src}
-                  alt={`Desain Kaos ${i + 1}`}
-                  width={300}
-                  height={300}
-                  className="rounded-xl transition-transform duration-500"
-                />
-              </motion.div>
-
-              <h3 className="mt-4 text-lg font-semibold">Desain {i + 1}</h3>
-              <p className="text-gray-600 text-sm mt-2">
-                Kaos Xavello edisi {i + 1}, elegan & nyaman.
-              </p>
+              <Image
+                src={item.src}
+                alt={item.title}
+                width={300}
+                height={300}
+                className="rounded-xl transition-transform duration-500"
+              />
             </motion.div>
-          ))}
-        </div>
+
+            <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
+            <p className="text-gray-600 text-sm mt-2">{item.desc}</p>
+          </motion.div>
+        ))}
+      </div>
+
       </section>
 
       {/* MODAL FULL IMAGE */}

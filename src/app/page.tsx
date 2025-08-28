@@ -11,7 +11,7 @@ export default function Home() {
         {/* Background */}
         <div className="absolute inset-0">
           <Image
-            src="/hero-bg.jpg"
+            src="/images/d.jpeg"
             alt="Xavello Background"
             fill
             priority
