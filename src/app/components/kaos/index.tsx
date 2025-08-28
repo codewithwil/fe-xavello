@@ -40,7 +40,7 @@ export default function Kaos() {
       {/* HERO */}
       <header className="relative w-full h-[50vh] md:h-screen flex items-center justify-center text-center text-white overflow-hidden">
         <Image
-          src="/images/banner.jpeg"
+          src="/images/banner.jpg"
           alt="Kaos Background"
           fill
           priority
@@ -88,37 +88,37 @@ export default function Kaos() {
         </motion.div>
 
         {/* GRID CARD */}
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {designs.map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.4 + i * 0.2, duration: 0.6 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className="bg-white rounded-2xl shadow hover:shadow-xl transition cursor-pointer p-4 flex flex-col items-center group"
-            onClick={() => setSelectedImage(item.src)}
-          >
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {designs.map((item, i) => (
             <motion.div
-              className="overflow-hidden rounded-xl"
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.4 }}
+              key={i}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.4 + i * 0.2, duration: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="bg-white rounded-2xl shadow hover:shadow-xl transition cursor-pointer p-4 flex flex-col items-center group"
+              onClick={() => setSelectedImage(item.src)}
             >
-              <Image
-                src={item.src}
-                alt={item.title}
-                width={300}
-                height={300}
-                className="rounded-xl transition-transform duration-500"
-              />
-            </motion.div>
+              <motion.div
+                className="overflow-hidden rounded-xl"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.4 }}
+              >
+                <Image
+                  src={item.src}
+                  alt={item.title}
+                  width={300}
+                  height={300}
+                  className="rounded-xl transition-transform duration-500"
+                />
+              </motion.div>
 
-            <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
-            <p className="text-gray-600 text-sm mt-2">{item.desc}</p>
-          </motion.div>
-        ))}
-      </div>
+              <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
+              <p className="text-gray-600 text-sm mt-2">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
 
       </section>
 
@@ -159,7 +159,7 @@ export default function Kaos() {
       {/* FOOTER */}
       <footer className="bg-black text-white py-16 text-center mt-auto">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-          Miliki Kaos Xavello Sekarang
+          Xavello – Defined by Elegance
         </h2>
         <a
           href="https://wa.me/6289646466047"

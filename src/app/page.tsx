@@ -8,7 +8,6 @@ export default function Home() {
     <div className="font-sans min-h-screen flex flex-col">
       {/* Hero Section */}
       <header className="relative w-full h-[90vh] flex items-center justify-center text-center bg-black text-white overflow-hidden">
-        {/* Background */}
         <div className="absolute inset-0">
           <Image
             src="/images/d.jpeg"
@@ -87,24 +86,23 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl">
           {/* Kaos */}
           <Link
-  href="/kaos"
-  className="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 flex flex-col items-center cursor-pointer"
->
-  <Image
-    src="/kaos.jpg"
-    alt="Kaos Custom"
-    width={300}
-    height={300}
-    className="rounded-xl"
-  />
-  <h3 className="text-xl font-semibold mt-4 flex items-center gap-2">
-    <Shirt className="w-5 h-5 text-black" /> Kaos Custom
-  </h3>
-  <p className="text-gray-600 text-sm mt-2 text-center">
-    Kaos dengan bahan adem & desain eksklusif. Cocok buat daily outfit.
-  </p>
-</Link>
-
+            href="/kaos"
+            className="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 flex flex-col items-center cursor-pointer"
+          >
+            <Image
+              src="/images/banner.jpg"
+              alt="Kaos Custom"
+              width={300}
+              height={300}
+              className="rounded-xl"
+            />
+            <h3 className="text-xl font-semibold mt-4 flex items-center gap-2">
+              <Shirt className="w-5 h-5 text-black" /> Kaos Custom
+            </h3>
+            <p className="text-gray-600 text-sm mt-2 text-center">
+              Kaos dengan bahan adem & desain eksklusif. Cocok buat daily outfit.
+            </p>
+          </Link>
 
           {/* Hoodie */}
           <div className="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 flex flex-col items-center">
